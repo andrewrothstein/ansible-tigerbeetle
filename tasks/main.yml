@@ -16,7 +16,8 @@
   ansible.builtin.stat:
     path: '{{ tigerbeetle_exe }}'
   register: tigerbeetle_binary
-- when: not tigerbeetle_binary.stat.exists
+- name: Downloading and installing tigerbeetle
+  when: not tigerbeetle_binary.stat.exists
   block:
     - name: Downloading {{ tigerbeetle_url }} to {{ tigerbeetle_tmp_archive }}
       become: true
@@ -32,6 +33,7 @@
       ansible.builtin.file:
         path: '{{ tigerbeetle_install_dir }}'
         state: directory
+        mode: '755'
     - name: Unarchive {{ tigerbeetle_tmp_archive }} to {{ tigerbeetle_install_dir }}
       become: true
       become_user: root
