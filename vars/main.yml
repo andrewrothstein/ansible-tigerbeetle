@@ -1,0 +1,11 @@
+---
+# vars file for tigerbeetle
+tigerbeetle_os: '{{ tigerbeetle_os_map[ansible_system] }}'
+tigerbeetle_arch: '{{ ansible_architecture }}'
+tigerbeetle_platform: '{{ tigerbeetle_os }}-{{ tigerbeetle_arch }}'
+tigerbeetle_url: '{{ tigerbeetle_mirror }}/{{ tigerbeetle_ver }}/tigerbeetle-{{ tigerbeetle_arch }}-{{ tigerbeetle_os }}.zip'
+tigerbeetle_tmp_archive: '{{ tigerbeetle_tmp_dir | default("/tmp") }}/tigerbeetle-{{ tigerbeetle_platform }}-{{ tigerbeetle_ver }}.zip'
+tigerbeetle_checksum: '{{ tigerbeetle_checksums[tigerbeetle_ver][tigerbeetle_platform] }}'
+tigerbeetle_install_dir: '{{ tigerbeetle_parent_install_dir }}/tigerbeetle-{{ tigerbeetle_ver }}'
+tigerbeetle_exe: '{{ tigerbeetle_install_dir }}/tigerbeetle'
+tigerbeetle_link: '{{ tigerbeetle_parent_install_dir }}/bin/tigerbeetle'

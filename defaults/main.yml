@@ -1,0 +1,26 @@
+---
+# defaults file for tigerbeetle
+tigerbeetle_ver: 0.15.3
+tigerbeetle_os_map:
+  Darwin: macos
+  Linux: linux
+tigerbeetle_parent_install_dir: /usr/local
+tigerbeetle_mirror: https://github.com/tigerbeetle/tigerbeetle/releases/download
+tigerbeetle_checksums:
+  0.15.3:
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-universal-macos.zip
+    macos-universal: sha256:3290c8f2b55aa808caa75f59f3dafc4b3a31ddeb0b47532d213107a01479bdb5
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-universal-macos-debug.zip
+    macos-debug-universal: sha256:1da66779922ab11567cf6d959350dc449aefafe9f3507e94a1bb95a21d016cbe
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-x86_64-linux.zip
+    linux-x86_64: sha256:127c9e69f27341f4bb7308a9fd0b20dc26d2c5003fda43473c152110b91a613e
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-x86_64-linux-debug.zip
+    linux-debug-x86_64: sha256:e4cc072de1b061ec23cac85288f1ad9736925a46e4da7a049a77c22d4f76ef3d
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-aarch64-linux.zip
+    linux-aarch64: sha256:43cbc6e9c00dff15d3c295b8a8028fdba1d965dae460d3e24a9b45c5f7083bda
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-aarch64-linux-debug.zip
+    linux-debug-aarch64: sha256:19efe4a6694073f33f94d4ff970e15989ac954bb5f86e09633f132eff8d38bb7
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-x86_64-windows.zip
+    windows-x86_64: sha256:6f6964dce466f88dfa1c2a76ba11fef1dabbfbe230d59a93fb64ad70a766ba3f
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.3/tigerbeetle-x86_64-windows-debug.zip
+    windows-debug-x86_64: sha256:cb335487ea66b0d0d2210012a524bf2a50a819639c1463fa851d683923b80127

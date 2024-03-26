@@ -1,0 +1,56 @@
+---
+- name: Install unarchivedeps
+  ansible.builtin.include_role:
+    name: andrewrothstein.unarchivedeps
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: Look for install at {{ tigerbeetle_exe }}
+  ansible.builtin.stat:
+    path: '{{ tigerbeetle_exe }}'
+  register: tigerbeetle_binary
+- when: not tigerbeetle_binary.stat.exists
+  block:
+    - name: Downloading {{ tigerbeetle_url }} to {{ tigerbeetle_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.get_url:
+        url: '{{ tigerbeetle_url }}'
+        dest: '{{ tigerbeetle_tmp_archive }}'
+        mode: '644'
+        checksum: '{{ tigerbeetle_checksum }}'
+    - name: Mkdir {{ tigerbeetle_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ tigerbeetle_install_dir }}'
+        state: directory
+    - name: Unarchive {{ tigerbeetle_tmp_archive }} to {{ tigerbeetle_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: '{{ tigerbeetle_tmp_archive }}'
+        dest: '{{ tigerbeetle_install_dir }}'
+        creates: '{{ tigerbeetle_exe }}'
+  always:
+    - name: Rm {{ tigerbeetle_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ tigerbeetle_tmp_archive }}'
+        state: absent
+- name: Linking {{ tigerbeetle_link }} to {{ tigerbeetle_exe }}
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    src: '{{ tigerbeetle_exe }}'
+    dest: '{{ tigerbeetle_link }}'
+    state: link

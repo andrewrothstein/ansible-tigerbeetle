@@ -1,0 +1,14 @@
+---
+- name: Testing andrewrothstein.tigerbeetle role
+  hosts: all
+  tasks:
+    - name: Installing andrewrothstein.tigerbeetle
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Executing 'tigerbeetle version'
+      ansible.builtin.command: tigerbeetle version
+      changed_when: false
+      register: 'tigerbeetle_test_output'
+    - name: Output from 'tigerbeetle version'
+      ansible.builtin.debug:
+        msg: '{{ tigerbeetle_test_output.stdout }}'
