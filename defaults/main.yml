@@ -1,6 +1,6 @@
 ---
 # defaults file for tigerbeetle
-tigerbeetle_ver: 0.15.4
+tigerbeetle_ver: 0.15.5
 tigerbeetle_os_map:
   Darwin: macos
   Linux: linux
@@ -41,3 +41,20 @@ tigerbeetle_checksums:
     windows-x86_64: sha256:29eacec9ea26cca03d6a0738ba1f6030f1aa5b9e093a932e4acea3128b9f2ca6
     # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.4/tigerbeetle-x86_64-windows-debug.zip
     windows-debug-x86_64: sha256:e1d0238011ae315edf93ca049fb5f31d96d89d9247e1a0510d05b9bb37a1f42e
+  0.15.5:
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-universal-macos.zip
+    macos-universal: sha256:5bf98e356b1406ded35288f0253d9c183f62f3577f7eba11eb382b18de83da74
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-universal-macos-debug.zip
+    macos-debug-universal: sha256:5445868a13d0a8dd6c617614b8d2d979a2afefed45cf07eb30120145f8d597bb
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-x86_64-linux.zip
+    linux-x86_64: sha256:889c33d01c7aa8c53108c87c413211cd1632d046e16f519373711db633d12024
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-x86_64-linux-debug.zip
+    linux-debug-x86_64: sha256:7080b9f507eae31906badce547d045429cde73494cc1413fae9293666db4e8ef
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-aarch64-linux.zip
+    linux-aarch64: sha256:5857b2afc9c30d4f609296da80d4853a37a37b41e74ad7d09b3ddef7816028a9
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-aarch64-linux-debug.zip
+    linux-debug-aarch64: sha256:aa68cc5c185890ca7a005632cbb96b57657299aa27df98761c71f8171a3dbd78
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-x86_64-windows.zip
+    windows-x86_64: sha256:0142d926b638631d8f1375de97ce649d0e4755e7d5c3fbc6b5b93505916a8de8
+    # https://github.com/tigerbeetle/tigerbeetle/releases/download/0.15.5/tigerbeetle-x86_64-windows-debug.zip
+    windows-debug-x86_64: sha256:84c384d5e11fef0c25ed3ef376f694bf20bdaedd67dde6e304afd2c15a138cda
