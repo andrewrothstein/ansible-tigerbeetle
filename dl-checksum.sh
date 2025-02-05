@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver windows-debug x86_64
 }
 
-dl_ver ${1:-0.16.19}
+dl_ver ${1:-0.16.26}
